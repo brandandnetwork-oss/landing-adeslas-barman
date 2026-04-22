@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const nombre = inputNombre.value.trim();
             const ciudad = inputCiudad.value.trim();
             
-            const text = `Hola, soy ${nombre}, de ${ciudad}. Me gustaría recibir más información sobre Adeslas Plena con las tarifas exclusivas de Barman Group.`;
+            const text = `Hola estoy viendo la web de TuOficinaLocal Barman Group y quiero información. Soy ${nombre} de ${ciudad}.`;
             
             const encodedText = encodeURIComponent(text);
             const whatsappUrl = `https://wa.me/34692220930?text=${encodedText}`;
