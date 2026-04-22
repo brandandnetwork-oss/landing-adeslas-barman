@@ -266,25 +266,54 @@
 </div>
 </div>
 <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-xl border border-outline-variant/10">
-<form id="contact-form" action="#" class="space-y-6">
-<div>
-<label class="block text-sm font-bold text-on-surface mb-2" for="name">Nombre completo</label>
-<input class="w-full bg-surface-container-low border-0 rounded-md p-4 focus:ring-2 focus:ring-primary-container/20 focus:bg-surface-container-lowest transition-all" id="name" placeholder="Tu nombre" type="text"/>
+<div class="mb-8">
+    <div class="flex justify-between items-end mb-4">
+        <h2 id="step-indicator-title" class="text-2xl font-bold text-on-surface">Nombre completo</h2>
+        <span id="step-indicator-num" class="text-sm font-bold text-primary-container">Paso 1 <span class="text-outline-variant font-normal text-lg">/ 4</span></span>
+    </div>
+    <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+        <div id="progress-bar" class="h-full bg-primary-container rounded-full transition-all duration-300 ease-out" style="width: 25%"></div>
+    </div>
 </div>
-<div>
-<label class="block text-sm font-bold text-on-surface mb-2" for="email">Correo electrónico</label>
-<input class="w-full bg-surface-container-low border-0 rounded-md p-4 focus:ring-2 focus:ring-primary-container/20 focus:bg-surface-container-lowest transition-all" id="email" placeholder="email@empresa.com" type="email"/>
+
+<div id="step-1" class="step-visible">
+    <label for="input-nombre" class="block text-sm font-bold text-on-surface mb-2">Tu nombre completo</label>
+    <input type="text" id="input-nombre" class="w-full bg-surface-container-low border-0 rounded-md p-4 mb-6 focus:ring-2 focus:ring-primary-container/20 transition-all text-on-surface" placeholder="Tu nombre" autocomplete="name">
+    <button id="btn-next-1" class="w-full bg-primary-container text-on-primary py-4 rounded-md font-bold text-lg hover:shadow-lg transition-all active:scale-95 flex justify-center items-center gap-2">
+        Continuar <span class="material-symbols-outlined text-lg">arrow_forward</span>
+    </button>
 </div>
-<div>
-<label class="block text-sm font-bold text-on-surface mb-2" for="phone">Teléfono de contacto</label>
-<input class="w-full bg-surface-container-low border-0 rounded-md p-4 focus:ring-2 focus:ring-primary-container/20 focus:bg-surface-container-lowest transition-all" id="phone" placeholder="+34 600 000 000" type="tel"/>
+
+<div id="step-2" class="step-hidden hidden">
+    <label for="input-telefono" class="block text-sm font-bold text-on-surface mb-2">Tu número de teléfono</label>
+    <input type="tel" id="input-telefono" class="w-full bg-surface-container-low border-0 rounded-md p-4 mb-6 focus:ring-2 focus:ring-primary-container/20 transition-all text-on-surface" placeholder="+34 600 000 000" autocomplete="tel">
+    <button id="btn-next-2" class="w-full bg-primary-container text-on-primary py-4 rounded-md font-bold text-lg hover:shadow-lg transition-all active:scale-95 flex justify-center items-center gap-2">
+        Continuar <span class="material-symbols-outlined text-lg">arrow_forward</span>
+    </button>
 </div>
-<div class="flex items-start gap-3 py-2">
-<input class="mt-1 rounded text-primary-container focus:ring-primary-container" id="privacy" type="checkbox"/>
-<label class="text-xs text-on-surface-variant" for="privacy">Acepto la política de privacidad y el tratamiento de mis datos para fines comerciales.</label>
+
+<div id="step-3" class="step-hidden hidden">
+    <label for="input-ciudad" class="block text-sm font-bold text-on-surface mb-2">Ciudad</label>
+    <input type="text" id="input-ciudad" class="w-full bg-surface-container-low border-0 rounded-md p-4 mb-6 focus:ring-2 focus:ring-primary-container/20 transition-all text-on-surface" placeholder="Ej. Madrid" autocomplete="address-level2">
+    <button id="btn-next-3" class="w-full bg-primary-container text-on-primary py-4 rounded-md font-bold text-lg hover:shadow-lg transition-all active:scale-95 flex justify-center items-center gap-2">
+        Continuar <span class="material-symbols-outlined text-lg">arrow_forward</span>
+    </button>
 </div>
-<button class="w-full bg-primary-container text-on-primary py-4 rounded-md font-bold text-lg hover:shadow-lg transition-all active:scale-95" type="submit">Quiero más información</button>
-</form>
+
+<div id="step-4" class="step-hidden hidden">
+    <p class="text-on-surface-variant text-sm mb-6 text-center leading-relaxed">
+        Ya casi estamos. Al pulsar el botón a continuación, se abrirá WhatsApp para conectar con nuestro equipo.
+    </p>
+    <div class="flex items-start gap-3 py-2 mb-6">
+        <input type="checkbox" id="privacy-wizard" class="mt-1 rounded text-primary-container focus:ring-primary-container">
+        <label for="privacy-wizard" class="text-xs text-on-surface-variant">
+            Acepto la <a href="politicas-legales.html" class="underline hover:text-primary-container">política de privacidad</a> y el tratamiento de datos.
+        </label>
+    </div>
+    <button id="btn-submit" class="w-full bg-[#25D366] text-white py-4 rounded-md font-bold text-lg hover:shadow-lg hover:shadow-[#25D366]/30 transition-all active:scale-95 flex justify-center items-center gap-2">
+        Hablar por WhatsApp <span class="material-symbols-outlined text-lg">chat</span>
+    </button>
+</div>
 </div>
 </div>
 </div>
@@ -304,37 +333,6 @@
 </div>
 </div>
 </footer>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const form = document.getElementById('contact-form');
-        if (form) {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const privacy = document.getElementById('privacy').checked;
-                
-                if (!name || !email || !phone) {
-                    alert("Por favor, rellena todos los campos.");
-                    return;
-                }
-                
-                if (!privacy) {
-                    alert("Debes aceptar la política de privacidad.");
-                    return;
-                }
-                
-                const text = `Hola, soy ${name}. Me gustaría recibir más información sobre Adeslas Plena con las tarifas exclusivas de Barman Group. Mi correo es ${email} y mi teléfono es ${phone}.`;
-                
-                const encodedText = encodeURIComponent(text);
-                const whatsappUrl = `https://wa.me/34692220930?text=${encodedText}`;
-                
-                window.open(whatsappUrl, '_blank');
-            });
-        }
-    });
-</script>
+<script type="module" src="./assets/js/wizard.js"></script>
 </body>
 </html>
