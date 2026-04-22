@@ -269,7 +269,7 @@
 <div class="mb-8">
     <div class="flex justify-between items-end mb-4">
         <h2 id="step-indicator-title" class="text-2xl font-bold text-on-surface">Nombre completo</h2>
-        <span id="step-indicator-num" class="text-sm font-bold text-primary-container">Paso 1 <span class="text-outline-variant font-normal text-lg">/ 4</span></span>
+        <span id="step-indicator-num" class="text-sm font-bold text-primary-container">Paso 1 <span class="text-outline-variant font-normal text-lg">/ 3</span></span>
     </div>
     <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
         <div id="progress-bar" class="h-full bg-primary-container rounded-full transition-all duration-300 ease-out" style="width: 25%"></div>
@@ -285,22 +285,14 @@
 </div>
 
 <div id="step-2" class="step-hidden hidden">
-    <label for="input-telefono" class="block text-sm font-bold text-on-surface mb-2">Tu número de teléfono</label>
-    <input type="tel" id="input-telefono" class="w-full bg-surface-container-low border-0 rounded-md p-4 mb-6 focus:ring-2 focus:ring-primary-container/20 transition-all text-on-surface" placeholder="+34 600 000 000" autocomplete="tel">
+    <label for="input-ciudad" class="block text-sm font-bold text-on-surface mb-2">Ciudad</label>
+    <input type="text" id="input-ciudad" class="w-full bg-surface-container-low border-0 rounded-md p-4 mb-6 focus:ring-2 focus:ring-primary-container/20 transition-all text-on-surface" placeholder="Ej. Madrid" autocomplete="address-level2">
     <button id="btn-next-2" class="w-full bg-primary-container text-on-primary py-4 rounded-md font-bold text-lg hover:shadow-lg transition-all active:scale-95 flex justify-center items-center gap-2">
         Continuar <span class="material-symbols-outlined text-lg">arrow_forward</span>
     </button>
 </div>
 
 <div id="step-3" class="step-hidden hidden">
-    <label for="input-ciudad" class="block text-sm font-bold text-on-surface mb-2">Ciudad</label>
-    <input type="text" id="input-ciudad" class="w-full bg-surface-container-low border-0 rounded-md p-4 mb-6 focus:ring-2 focus:ring-primary-container/20 transition-all text-on-surface" placeholder="Ej. Madrid" autocomplete="address-level2">
-    <button id="btn-next-3" class="w-full bg-primary-container text-on-primary py-4 rounded-md font-bold text-lg hover:shadow-lg transition-all active:scale-95 flex justify-center items-center gap-2">
-        Continuar <span class="material-symbols-outlined text-lg">arrow_forward</span>
-    </button>
-</div>
-
-<div id="step-4" class="step-hidden hidden">
     <p class="text-on-surface-variant text-sm mb-6 text-center leading-relaxed">
         Ya casi estamos. Al pulsar el botón a continuación, se abrirá WhatsApp para conectar con nuestro equipo.
     </p>
